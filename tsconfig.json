@@ -1,0 +1,14 @@
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html dist/ && cp -r assets dist/"
+  },
+  "dependencies": {
+    "vite": "^6.0.0"
+  },
+  "devDependencies": {
+  }
+}
