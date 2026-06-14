@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oryx Vision Lab</title>
-    <link rel="icon" type="image/jpeg" href="./logo.jpeg">
+    <link class="rounded-full" rel="icon" type="image/jpeg" href="./logo.jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -72,7 +72,6 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header class="border-b border-gray-900 bg-black/50 py-4 px-6 flex flex-col md:flex-row justify-between items-center gap-4 sticky top-0 z-40 backdrop-blur-md">
         <div class="flex items-center gap-3">
             <img src="./logo.jpeg" alt="Oryx Logo" class="w-12 h-12 rounded-full border border-gray-800">
@@ -88,10 +87,8 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main class="max-w-5xl mx-auto px-4 py-12 relative z-10">
         
-        <!-- Home Tab -->
         <div id="home" class="tab-content active space-y-16">
             <section class="text-center space-y-6 pt-10">
                 <h2 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
@@ -103,53 +100,93 @@
             </section>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-                <!-- Cards -->
                 <div class="p-8 rounded-xl bg-gray-900 border border-gray-800 hover:border-oryx transition">
                     <h3 class="text-xl font-bold text-oryx mb-3">الجسر المعرفي</h3>
-                    <p class="text-gray-400">دمج البرمجة بالطب الحديث.</p>
+                    <p class="text-gray-400">دمج البرمجة بالطب الحديث والأجهزة الذكية.</p>
                 </div>
                 <div class="p-8 rounded-xl bg-gray-900 border border-gray-800 hover:border-oryx transition">
                     <h3 class="text-xl font-bold text-oryx mb-3">البحث العميق</h3>
-                    <p class="text-gray-400">دراسات أكاديمية في الخلايا الجذعية.</p>
+                    <p class="text-gray-400">دراسات أكاديمية في الخلايا الجذعية والمحاكاة السحابية الحيوية.</p>
                 </div>
                 <div class="p-8 rounded-xl bg-gray-900 border border-gray-800 hover:border-oryx transition">
                     <h3 class="text-xl font-bold text-oryx mb-3">التقنية الحرة</h3>
-                    <p class="text-gray-400">مخططات مفتوحة المصدر للابتكار.</p>
+                    <p class="text-gray-400">مخططات هندسية وأطر مفاهيمية مفتوحة المصدر للابتكار.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Research Tab -->
         <div id="research" class="tab-content space-y-12">
             <div class="border-b border-gray-900 pb-6">
                 <h2 class="text-3xl font-extrabold text-white">قسم الأبحاث العلمية</h2>
                 <p class="text-gray-500 mt-2">الأبحاث الأكاديمية والسريرية لمنظومة Oryx Vision Lab</p>
             </div>
 
-            <div class="flex justify-center">
-                <div onclick="openModal()" class="w-full max-w-lg bg-gray-950 border border-gray-900 hover:border-oryx rounded-2xl p-8 cursor-pointer transition shadow-xl text-center space-y-6">
-                    <img src="./oryx_regen_logo.jpeg" alt="Regen Logo" class="h-16 mx-auto">
-                    <h3 class="text-2xl font-bold text-white uppercase tracking-wide">
-                        Oryx Regen
-                    </h3>
-                    <p class="text-sm text-cyan-400 font-mono">(iPSC-Based Regenerative Medicine)</p>
-                    <p class="text-gray-400 text-sm">
-                        إطار مفاهيمي متكامل يربط بين إعادة البرمجة الخلوية وهندسة الأنسجة الموجهة.
-                    </p>
-                    <button class="bg-oryx/10 text-oryx border border-oryx/30 px-6 py-2 rounded-full hover:bg-oryx hover:text-black transition uppercase font-bold text-sm">
-                        استكشاف البحث وتنزيله
-                    </button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div onclick="openModal('regen-modal')" class="bg-gray-950 border border-gray-900 hover:border-oryx rounded-2xl p-8 cursor-pointer transition shadow-xl text-center space-y-6 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <img src="./oryx_regen_logo.jpeg" alt="Regen Logo" class="h-16 mx-auto rounded shadow-md">
+                        <h3 class="text-2xl font-bold text-white uppercase tracking-wide">
+                            Oryx Regen
+                        </h3>
+                        <p class="text-sm text-cyan-400 font-mono">(iPSC-Based Regenerative Medicine)</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            إطار مفاهيمي متكامل يربط بين إعادة البرمجة الخلوية وهندسة الأنسجة الموجهة لتخليق خلايا وسلالات متخصصة.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 font-mono mb-3 space-y-1 bg-black/30 p-2 rounded-xl border border-gray-900">
+                            <div class="flex justify-between px-2">
+                                <span>تنزيلات النسخة العربية:</span>
+                                <span id="count-regen-ar" class="text-oryx font-bold">0</span>
+                            </div>
+                            <div class="flex justify-between px-2 border-t border-gray-900/50 pt-1">
+                                <span>تنزيلات النسخة الإنجليزية:</span>
+                                <span id="count-regen-en" class="text-cyan-400 font-bold">0</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-oryx/10 text-oryx border border-oryx/30 px-6 py-2 rounded-full hover:bg-oryx hover:text-black transition uppercase font-bold text-sm">
+                            استكشاف البحث وتنزيله
+                        </button>
+                    </div>
                 </div>
+
+                <div onclick="openModal('vital-modal')" class="bg-gray-950 border border-gray-900 hover:border-oryx rounded-2xl p-8 cursor-pointer transition shadow-xl text-center space-y-6 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <img src="./vital_logo.jpeg" alt="Vital Logo" class="h-16 mx-auto rounded shadow-md" onerror="this.src='./logo.jpeg';">
+                        <h3 class="text-2xl font-bold text-white uppercase tracking-wide">
+                            Oryx Vital
+                        </h3>
+                        <p class="text-sm text-cyan-400 font-mono">(OXID Framework & Cloud)</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            إطار مفاهيمي لجهاز مراقبة الصحة الشخصية المتكامل مع نظام المحاكاة والتحليلات الحيوية السحابية Oryx Vital Cloud.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 font-mono mb-3 space-y-1 bg-black/30 p-2 rounded-xl border border-gray-900">
+                            <div class="flex justify-between px-2">
+                                <span>تنزيلات النسخة العربية:</span>
+                                <span id="count-vital-ar" class="text-oryx font-bold">0</span>
+                            </div>
+                            <div class="flex justify-between px-2 border-t border-gray-900/50 pt-1">
+                                <span>تنزيلات النسخة الإنجليزية:</span>
+                                <span id="count-vital-en" class="text-cyan-400 font-bold">0</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-oryx/10 text-oryx border border-oryx/30 px-6 py-2 rounded-full hover:bg-oryx hover:text-black transition uppercase font-bold text-sm">
+                            استكشاف البحث وتنزيله
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <!-- Projects Tab -->
         <div id="projects" class="tab-content space-y-12">
             <div class="border-b border-gray-900 pb-6">
                 <h2 class="text-3xl font-extrabold text-white">قسم المشاريع</h2>
                 <p class="text-gray-500 mt-2">المشاريع التقنية والابتكارات القادمة بمنظومة الطبية والبرمجية.</p>
             </div>
-            
             <div class="flex justify-center py-24 border border-dashed border-gray-800 rounded-2xl bg-gray-900/20">
                 <div class="text-center space-y-2">
                     <p class="text-2xl font-bold text-gray-400">قريباً...</p>
@@ -158,13 +195,11 @@
             </div>
         </div>
 
-        <!-- Blueprints Tab -->
         <div id="blueprints" class="tab-content space-y-12">
             <div class="border-b border-gray-900 pb-6">
                 <h2 class="text-3xl font-extrabold text-white">قسم المخططات</h2>
                 <p class="text-gray-500 mt-2">المخططات مفتوحة المصدر والتصاميم الهندسية المعمارية والتقنية.</p>
             </div>
-            
             <div class="flex justify-center py-24 border border-dashed border-gray-800 rounded-2xl bg-gray-900/20">
                 <div class="text-center space-y-2">
                     <p class="text-2xl font-bold text-gray-400">قريباً...</p>
@@ -175,37 +210,33 @@
 
     </main>
 
-    <!-- Modal for Research -->
-    <div id="research-modal" class="modal" onclick="closeModal(event)">
+    <div id="regen-modal" class="modal" onclick="closeModal('regen-modal', event)">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <!-- Close Button -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white bg-gray-900 p-2 rounded-full">
+            <button onclick="closeModal('regen-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-white bg-gray-900 p-2 rounded-full">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
             </button>
 
             <div class="text-center space-y-4 pt-4">
-                <img src="./oryx_regen_logo.jpeg" class="h-16 mx-auto">
+                <img src="./oryx_regen_logo.jpeg" class="h-16 mx-auto rounded">
                 <h2 class="text-3xl font-extrabold text-oryx">ORYX REGEN</h2>
                 <p class="text-sm font-mono text-cyan-400">(iPSC-Based Regenerative Medicine)</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-                <!-- English Teaser -->
                 <div class="space-y-3">
                     <div class="bg-gray-900 p-2 rounded-xl flex justify-center items-center h-48 border border-gray-800">
-                        <img src="./teaser-en.png" class="max-h-full rounded">
+                        <img src="./teaser-en.png" class="max-h-full rounded" onerror="this.src='./logo.jpeg'">
                     </div>
-                    <a href="./Oryx_Regen_v1_EN.pdf" download="Oryx_Regen_v1_EN.pdf" target="_blank" class="block w-full py-3 bg-cyan-700 hover:bg-cyan-600 rounded-xl text-center text-white font-bold transition">
+                    <a href="./Oryx_Regen_v1_EN.pdf" download="Oryx_Regen_v1_EN.pdf" target="_blank" onclick="incrementDownload('regen-en')" class="block w-full py-3 bg-cyan-700 hover:bg-cyan-600 rounded-xl text-center text-white font-bold transition">
                         تحميل البحث (إنجليزي) / Download EN
                     </a>
                 </div>
 
-                <!-- Arabic Teaser -->
                 <div class="space-y-3">
                     <div class="bg-gray-900 p-2 rounded-xl flex justify-center items-center h-48 border border-gray-800">
-                        <img src="./teaser-ar.png" class="max-h-full rounded">
+                        <img src="./teaser-ar.png" class="max-h-full rounded" onerror="this.src='./logo.jpeg'">
                     </div>
-                    <a href="./Oryx_Regen_v1_AR.pdf" download="Oryx_Regen_v1_AR.pdf" target="_blank" class="block w-full py-3 bg-oryx hover:bg-[#00d672] rounded-xl text-center text-black font-bold transition">
+                    <a href="./Oryx_Regen_v1_AR.pdf" download="Oryx_Regen_v1_AR.pdf" target="_blank" onclick="incrementDownload('regen-ar')" class="block w-full py-3 bg-oryx hover:bg-[#00d672] rounded-xl text-center text-black font-bold transition">
                         تحميل البحث (عربي) / Download AR
                     </a>
                 </div>
@@ -213,29 +244,79 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <div id="vital-modal" class="modal" onclick="closeModal('vital-modal', event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button onclick="closeModal('vital-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-white bg-gray-900 p-2 rounded-full">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="text-center space-y-4 pt-4">
+                <img src="./vital_logo.jpeg" class="h-16 mx-auto rounded shadow-md" onerror="this.src='./logo.jpeg';">
+                <h2 class="text-3xl font-extrabold text-oryx">ORYX VITAL</h2>
+                <p class="text-sm font-mono text-cyan-400">(OXID Framework & Cloud Integration)</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+                <div class="space-y-3">
+                    <div class="bg-gray-900 p-2 rounded-xl flex justify-center items-center h-48 border border-gray-800 overflow-hidden">
+                        <img src="./vital-teaser-en.png" class="max-h-full rounded object-contain" onerror="this.src='./logo.jpeg'">
+                    </div>
+                    <a href="./Oryx Vital Research EN.pdf" download="Oryx Vital Research EN.pdf" target="_blank" onclick="incrementDownload('vital-en')" class="block w-full py-3 bg-cyan-700 hover:bg-cyan-600 rounded-xl text-center text-white font-bold transition">
+                        تحميل البحث (إنجليزي) / Download EN
+                    </a>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="bg-gray-900 p-2 rounded-xl flex justify-center items-center h-48 border border-gray-800 overflow-hidden">
+                        <img src="./vital-teaser-ar.png" class="max-h-full rounded object-contain" onerror="this.src='./logo.jpeg'">
+                    </div>
+                    <a href="./Oryx Vital Research AR.pdf" download="Oryx Vital Research AR.pdf" target="_blank" onclick="incrementDownload('vital-ar')" class="block w-full py-3 bg-oryx hover:bg-[#00d672] rounded-xl text-center text-black font-bold transition">
+                        تحميل البحث (عربي) / Download AR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Initialize and display counts on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            updateDisplay('regen-ar');
+            updateDisplay('regen-en');
+            updateDisplay('vital-ar');
+            updateDisplay('vital-en');
+        });
+
         function switchTab(event, tabId) {
-            // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            // Remove active style from buttons
             document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
-            
-            // Show selected tab
             document.getElementById(tabId).classList.add('active');
-            
-            // Set active button
             event.currentTarget.classList.add('active');
             window.scrollTo(0,0);
         }
 
-        function openModal() {
-            document.getElementById('research-modal').classList.add('active');
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
         }
 
-        function closeModal(e) {
-            if (e && e.target.id !== 'research-modal' && e.target.tagName !== 'BUTTON' && !e.target.closest('button')) return;
-            document.getElementById('research-modal').classList.remove('active');
+        function closeModal(modalId, e) {
+            if (e && e.target.id !== modalId && e.target.tagName !== 'BUTTON' && !e.target.closest('button')) return;
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Counter Logic Functions
+        function incrementDownload(id) {
+            let currentCount = parseInt(localStorage.getItem('dl_' + id)) || 0;
+            localStorage.setItem('dl_' + id, currentCount + 1);
+            updateDisplay(id);
+        }
+
+        function updateDisplay(id) {
+            let currentCount = localStorage.getItem('dl_' + id) || 0;
+            const element = document.getElementById('count-' + id);
+            if (element) {
+                element.innerText = currentCount;
+            }
         }
     </script>
 </body>
