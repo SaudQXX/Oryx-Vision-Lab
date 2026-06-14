@@ -135,16 +135,6 @@
                         </p>
                     </div>
                     <div>
-                        <div class="text-xs text-gray-500 font-mono mb-3 space-y-1 bg-black/30 p-2 rounded-xl border border-gray-900">
-                            <div class="flex justify-between px-2">
-                                <span>تنزيلات النسخة العربية:</span>
-                                <span id="count-regen-ar" class="text-oryx font-bold">0</span>
-                            </div>
-                            <div class="flex justify-between px-2 border-t border-gray-900/50 pt-1">
-                                <span>تنزيلات النسخة الإنجليزية:</span>
-                                <span id="count-regen-en" class="text-cyan-400 font-bold">0</span>
-                            </div>
-                        </div>
                         <button class="w-full bg-oryx/10 text-oryx border border-oryx/30 px-6 py-2 rounded-full hover:bg-oryx hover:text-black transition uppercase font-bold text-sm">
                             استكشاف البحث وتنزيله
                         </button>
@@ -163,16 +153,6 @@
                         </p>
                     </div>
                     <div>
-                        <div class="text-xs text-gray-500 font-mono mb-3 space-y-1 bg-black/30 p-2 rounded-xl border border-gray-900">
-                            <div class="flex justify-between px-2">
-                                <span>تنزيلات النسخة العربية:</span>
-                                <span id="count-vital-ar" class="text-oryx font-bold">0</span>
-                            </div>
-                            <div class="flex justify-between px-2 border-t border-gray-900/50 pt-1">
-                                <span>تنزيلات النسخة الإنجليزية:</span>
-                                <span id="count-vital-en" class="text-cyan-400 font-bold">0</span>
-                            </div>
-                        </div>
                         <button class="w-full bg-oryx/10 text-oryx border border-oryx/30 px-6 py-2 rounded-full hover:bg-oryx hover:text-black transition uppercase font-bold text-sm">
                             استكشاف البحث وتنزيله
                         </button>
@@ -227,7 +207,7 @@
                     <div class="bg-gray-900 p-2 rounded-xl flex justify-center items-center h-48 border border-gray-800">
                         <img src="./teaser-en.png" class="max-h-full rounded" onerror="tryWebp(this, './teaser-en.webp');">
                     </div>
-                    <a href="./Oryx_Regen_v1_EN.pdf" download="Oryx_Regen_v1_EN.pdf" target="_blank" onclick="incrementDownload('regen-en')" class="block w-full py-3 bg-cyan-700 hover:bg-cyan-600 rounded-xl text-center text-white font-bold transition">
+                    <a href="./Oryx_Regen_v1_EN.pdf" download="Oryx_Regen_v1_EN.pdf" target="_blank" class="block w-full py-3 bg-cyan-700 hover:bg-cyan-600 rounded-xl text-center text-white font-bold transition">
                         تحميل البحث (إنجليزي) / Download EN
                     </a>
                 </div>
@@ -236,7 +216,7 @@
                     <div class="bg-gray-900 p-2 rounded-xl flex justify-center items-center h-48 border border-gray-800">
                         <img src="./teaser-ar.png" class="max-h-full rounded" onerror="tryWebp(this, './teaser-ar.webp');">
                     </div>
-                    <a href="./Oryx_Regen_v1_AR.pdf" download="Oryx_Regen_v1_AR.pdf" target="_blank" onclick="incrementDownload('regen-ar')" class="block w-full py-3 bg-oryx hover:bg-[#00d672] rounded-xl text-center text-black font-bold transition">
+                    <a href="./Oryx_Regen_v1_AR.pdf" download="Oryx_Regen_v1_AR.pdf" target="_blank" class="block w-full py-3 bg-oryx hover:bg-[#00d672] rounded-xl text-center text-black font-bold transition">
                         تحميل البحث (عربي) / Download AR
                     </a>
                 </div>
@@ -261,7 +241,7 @@
                     <div class="bg-gray-900 p-2 rounded-xl flex justify-center items-center h-48 border border-gray-800 overflow-hidden">
                         <img src="./vital-teaser-en.png" class="max-h-full rounded object-contain" onerror="tryWebp(this, './vital-teaser-en.webp');">
                     </div>
-                    <a href="./Oryx Vital Research EN.pdf" download="Oryx Vital Research EN.pdf" target="_blank" onclick="incrementDownload('vital-en')" class="block w-full py-3 bg-cyan-700 hover:bg-cyan-600 rounded-xl text-center text-white font-bold transition">
+                    <a href="./Oryx Vital Research EN.pdf" download="Oryx Vital Research EN.pdf" target="_blank" class="block w-full py-3 bg-cyan-700 hover:bg-cyan-600 rounded-xl text-center text-white font-bold transition">
                         تحميل البحث (إنجليزي) / Download EN
                     </a>
                 </div>
@@ -270,7 +250,7 @@
                     <div class="bg-gray-900 p-2 rounded-xl flex justify-center items-center h-48 border border-gray-800 overflow-hidden">
                         <img src="./vital-teaser-ar.png" class="max-h-full rounded object-contain" onerror="tryWebp(this, './vital-teaser-ar.webp');">
                     </div>
-                    <a href="./Oryx Vital Research AR.pdf" download="Oryx Vital Research AR.pdf" target="_blank" onclick="incrementDownload('vital-ar')" class="block w-full py-3 bg-oryx hover:bg-[#00d672] rounded-xl text-center text-black font-bold transition">
+                    <a href="./Oryx Vital Research AR.pdf" download="Oryx Vital Research AR.pdf" target="_blank" class="block w-full py-3 bg-oryx hover:bg-[#00d672] rounded-xl text-center text-black font-bold transition">
                         تحميل البحث (عربي) / Download AR
                     </a>
                 </div>
@@ -279,21 +259,12 @@
     </div>
 
     <script>
-        // Initialize and display counts on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            updateDisplay('regen-ar');
-            updateDisplay('regen-en');
-            updateDisplay('vital-ar');
-            updateDisplay('vital-en');
-        });
-
-        // Safety fallback function to swap extensions if browser downloaded it as webp
         function tryWebp(imgElement, fallbackUrl) {
             if (!imgElement.dataset.tried) {
                 imgElement.dataset.tried = "true";
                 imgElement.src = fallbackUrl;
             } else {
-                imgElement.src = './logo.jpeg'; // Absolute fallback
+                imgElement.src = './logo.jpeg';
             }
         }
 
@@ -312,21 +283,6 @@
         function closeModal(modalId, e) {
             if (e && e.target.id !== modalId && e.target.tagName !== 'BUTTON' && !e.target.closest('button')) return;
             document.getElementById(modalId).classList.remove('active');
-        }
-
-        // Counter Logic Functions
-        function incrementDownload(id) {
-            let currentCount = parseInt(localStorage.getItem('dl_' + id)) || 0;
-            localStorage.setItem('dl_' + id, currentCount + 1);
-            updateDisplay(id);
-        }
-
-        function updateDisplay(id) {
-            let currentCount = localStorage.getItem('dl_' + id) || 0;
-            const element = document.getElementById('count-' + id);
-            if (element) {
-                element.innerText = currentCount;
-            }
         }
     </script>
 </body>
